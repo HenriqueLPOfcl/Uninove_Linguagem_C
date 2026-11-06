@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(){
+    
+    int  quant, cont = 1; //con = contador 
+    double op, soma = 0, media; 
+    
+    printf(" Digite a quandidade de oprações: ");
+    scanf("%d", &quant);
+   
+   do{
+    printf(" Digite a operações finaceiras %d: R$: ", cont);
+    scanf("%lf", &op);
+   
+    soma = soma + op;
+    cont ++;
+     } 
+    while(cont <= quant);
+    media = soma / quant;
+    
+    printf("\n  Soma dos gastos: %.2lf ", soma);
+     printf("\n Média dos gastos: %.2lf \n\n", media);
+    return 0;
+}
