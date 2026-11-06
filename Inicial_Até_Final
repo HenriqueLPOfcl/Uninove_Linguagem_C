@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(){
+    
+    int  c, i, f; // c = contador, i = inicio, f = final
+    
+    printf("Valor incial");
+    printf("\nR: ");
+    scanf("%d", &i);
+    
+    printf("Valor final:");
+    printf("\nR: ");
+    scanf("%d", &f);
+    
+    printf("\n");
+    
+    for(c = i; c <= f; c ++){
+        printf("--> %d \n",c); 
+    }
+    
+    return 0;
+}
