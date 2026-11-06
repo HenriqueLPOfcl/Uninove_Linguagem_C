@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(){
+    float isal, fsal;
+    
+    printf("inicial salário: ");
+     scanf("%f", &isal);
+     
+    if (isal <= 2000.00){
+        fsal = isal * 1.10;
+    }
+     if (isal > 2000.00){
+        fsal = isal * 1.30;
+    }
+    printf("Salario final: R$ %.2f",fsal);
+    return 0;
+}
