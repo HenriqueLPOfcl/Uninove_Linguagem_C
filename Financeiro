@@ -2,14 +2,14 @@
 
 int main(){
     
-    int  quant, cont = 1; //con = contador 
-    double op, soma = 0, media; 
+    int  quant, cont = 1;          // con = contador, quant = quantidade
+    double op, soma = 0, media;   // op = operações
     
-    printf(" Digite a quandidade de oprações: ");
+    printf(" Digite a quantidade de operações: ");
     scanf("%d", &quant);
    
    do{
-    printf(" Digite a operações finaceiras %d: R$: ", cont);
+    printf(" Digite a operações financeiras %d: R$: ", cont);
     scanf("%lf", &op);
    
     soma = soma + op;
