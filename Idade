@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(){
+    int idd;
+    
+    printf("idade: ");
+     scanf("%d", &idd);
+     
+    if (idd >= 18){
+        printf("Adulto");
+    }
+     else {
+         printf("Adolecente ou criança");
+        ;
+    }
+ return 0;
+}
