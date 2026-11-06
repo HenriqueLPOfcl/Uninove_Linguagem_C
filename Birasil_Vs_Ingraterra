@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+	int golsBr, golsEng;
+
+	printf(" ##### Placar  ######### ");
+
+	printf("\n GOls do Brasil: ");
+	scanf("%i", &golsBr);
+
+	printf("\n GOls do Ingraterra: ");
+	scanf("%i", &golsEng);
+
+	printf(" ###################### ");
+
+	if(golsBr == golsEng)
+		printf(" Empate! ");
+
+	else if(golsBr > golsEng)
+		printf(" Vitoria do Brasileiros! ");
+
+	else
+		printf(" Vitoria do Britânico! ");
+	printf("\n ####################### ");
+
+	return 0;
+}
