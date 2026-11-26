@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char origem[20] = "Programação em C",  
+    destino[20]; //Deve ser igual ou maior que origem
+
+    printf("Antes da cópia:\n");
+    printf("origem: %s\n", origem);
+    printf("destino: %s\n", destino);
+    strcpy(destino, origem);
+    printf("\nDepois da cópia com strcpy():\n");
+    printf("origem: %s\n", origem);
+    printf("destino: %s\n", destino);
+return 0;
+}
