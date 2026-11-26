@@ -1,0 +1,39 @@
+#include <stdio.h>
+int main(){
+    int eliminacoes[6];
+    int total = 0;
+    int melhorOnda = 0;
+    int acimaDaMedia = 0;
+    double media;
+
+    for(int i = 0; i < 6; i++){
+        do{
+            printf("Zumbis eliminados na onda %d: ", i + 1);
+            scanf("%d", &eliminacoes[i]);
+
+            if (eliminacoes[i] < 0){
+                printf("Digite um valor não negativo.\n");
+            }
+        }
+        
+        while(eliminacoes[i] < 0);
+            
+            total += eliminacoes[i];
+            
+            if(eliminacoes[i] > eliminacoes[melhorOnda]){
+            melhorOnda = i;
+          }
+        }
+        media = total / 6.0;
+    
+        for(int i = 0; i < 6; i++){
+            if(eliminacoes[i] > media){
+                acimaDaMedia++;
+        }
+    }
+    printf("\nTotal de eliminações: %d\n", total);
+    printf("Melhor onda: %d, com %d eliminações\n", melhorOnda + 1, eliminacoes[melhorOnda]);
+    printf("Média por onda: %.2lf\n", media);
+    printf("Ondas acima da média: %d\n", acimaDaMedia);
+    return 0;
+}
