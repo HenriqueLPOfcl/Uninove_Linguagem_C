@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+char frase[100];
+int valor = 0;
+printf("Digite uma frase: ");
+fgets(frase, sizeof(frase), stdin); // lê até 99 caracteres ou até '\n'
+// Remove o '\n' do final, se estiver presente
+frase[strcspn(frase, "\n")] = '\0';
+valor = strcspn(frase, "\n");
+printf("Você digitou: \"%s\"\n", frase);
+printf("Valor: %d",valor);
+return 0;
+}
