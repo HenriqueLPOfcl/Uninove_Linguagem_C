@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(){
+  
+    int i = 6996, *p; // *p = ponteiro, 6996 = N° colocado no código  
+    
+    p = &i; // p = ponteiro
+    
+    printf("\n Ponteiro em C  \n");     // Título 
+    
+    printf("\n valor de i = %d\n", i);       // i = %d = i = N° 
+    
+    printf("\nEndereço de i = %p\n", &i);   // i = %p = &i = N°
+
+    printf("\nEndereço de i = %p\n", p);    // i = %p = p = Endereço da Máquina
+
+    printf("\nEndereço de p = %p\n ", &p); // p = %p = &p = Endereço da Máquina
+    
+    printf("\n acesso indireto através de p = %d\n", *p); // p = %d = *p = N°  
+
+    return 0;
+}
