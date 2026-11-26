@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char alunos[10][60];
+    int i;
+
+    printf ("##### Cadastro dos Alunos #####\n");
+
+    for (i = 0; i < 10; i++) {
+        printf ("Digite um nome de aluno: ");
+        fgets (alunos[i], sizeof(alunos[i]),stdin);
+        alunos[i][strcspn(alunos[i], "\n")] = '\0';
+    }
+    printf ("\nAlunos da turma:\n");
+    for (i = 0; i < 10; i++) {
+        printf(" → %s \n",alunos[i]);
+    }
+return 0;
+}
