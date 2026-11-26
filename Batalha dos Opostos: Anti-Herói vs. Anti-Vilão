@@ -1,0 +1,80 @@
+#include <stdio.h>   // Inclui biblioteca padrao de entrada e saida (printf, scanf, getchar)
+#include <stdlib.h>  // Inclui biblioteca padrao de utilitarios (rand, srand, system)
+#include <time.h>    // Inclui biblioteca de tempo (time) para gerar semente aleatoria
+#include <unistd.h>  // Inclui chamadas do sistema POSIX (usado pelo system("clear"))
+#define m_S 100 // m_S = máximo de Saude (100)
+
+void mS(int sAH, int sAV){ // mS = mostrar Status | sAH = saude do Anti-Heroi | sAV = saude do Anti-Vilao
+    printf("############### Batalha dos Opostos⚔️ 🛡️  ###############\n"); // Imprime cabecalho principal do jogo
+    printf("########## Anti-Heroi 🥷  vs 🦹  Anti-Vilao ##########\n"); // Imprime os combatentes na tela
+    printf("----------------------------------------------------\n"); // Imprime linha separadora superior
+    printf("Anti-Heroi: %d \n", sAH); // sAH = saude do Anti-Heroi
+    printf("Anti-Vilao: %d \n", sAV); // sAV = saude do Anti-Vilao
+    printf("----------------------------------------------------\n"); // Imprime linha separadora inferior
+}
+
+void aAh(int *sAV){ // aAh = ataque do Anti-Heroi | sAV = saude do Anti-Vilao
+    int d = rand() % 11 + 20; // d = dano (aleatorio entre 20 e 30)
+    *sAV = *sAV - d; // sAV = saude do Anti-Vilao | d = dano
+    printf("Seu ataque causou %d de dano no Anti-Vilao 🗡️\n ", d); // d = dano
+}
+
+void aAV(int *sAH){ // aAV = ataque do Anti-Vilao | sAH = saude do Anti-Heroi
+    int d = rand() % 11 + 20; // d = dano (aleatorio entre 20 e 30)
+    *sAH = *sAH - d; // sAH = saude do Anti-Heroi | d = dano
+    printf("O ataque do Anti-Vilao causou %d de dano em voce 💀️ 🦹  \n ", d); // d = dano
+}
+
+void cAH(int *sAH){ // cAH = cura do Anti-Heroi | sAH = saude do Anti-Heroi
+    int c = rand() % 11 + 25; // c = cura (aleatoria entre 25 e 35)
+    *sAH = *sAH + c; // sAH = saude do Anti-Heroi | c = cura
+    if(*sAH > m_S){ // m_S = máximo de Saude
+        *sAH = m_S; // m_S = máximo de Saude
+        printf("A vida do anti-heroi foi limitada a 100 HP \n"); // Avisa que a saude foi limitada a 100 HP
+    }
+    printf("A cura foi de %d HP. 🧪 \n", c); // c = cura
+}
+
+
+int main() // Funcao principal onde o jogo comeca
+{
+    char j, p; // j = jogada (escolha do turno) | p = proceguir (resposta para reiniciar ou encerrar)
+    do{ // Laco externo: controla se uma nova partida sera iniciada
+        int sAH = m_S, sAV = m_S; // sAH = saude do Anti-Heroi | sAV = saude do Anti-Vilao | m_S = máximo de Saude
+        srand(time(NULL)); // Inicializa a semente do gerador de numeros aleatorios com o tempo atual
+        do{ // Laco interno: controla os turnos ate o jogador escolher sair ('4')
+            system("clear"); // Limpa o terminal antes de redesenhar a tela
+            mS(sAH, sAV); // mS = mostrar Status | sAH = saude do Anti-Heroi | sAV = saude do Anti-Vilao
+            printf("  -> 1 - Ataque 🗡\n"); // Exibe a opcao 1 no menu
+            printf("  -> 2 - Cura 🧪 \n"); // Exibe a opcao 2 no menu
+            printf("  -> 3 - Defesa 🛡 \n"); // Exibe a opcao 3 no menu
+            printf("  -> 4 - Sair 🚪 🔚\n"); // Exibe a opcao 4 no menu
+            printf(" Digite a sua jogada: "); // Solicita a entrada da acao ao jogador
+            scanf(" %c", &j); // j = jogada (le o caractere ignorando espacos/quebras de linha anteriores)
+            if(j == '1'){ // j = jogada (executa se o jogador escolheu atacar)
+                aAh(&sAV); // aAh = ataque do Anti-Heroi | sAV = saude do Anti-Vilao
+            }
+            else if(j == '2'){ // j = jogada (executa se o jogador escolheu curar)
+                cAH(&sAH); // cAH = cura do Anti-Heroi | sAH = saude do Anti-Heroi
+            }
+            else if(j == '3'){ // j = jogada (executa se o jogador escolheu defender)
+                printf("Voce defendeu o ataque do Anti-Vilao 🛡 \n"); // Exibe mensagem de defesa na tela
+                printf("Pressione Enter para continuar...\n"); // Pede para pressionar Enter antes de prosseguir
+                getchar(); // Captura/descarta o '\n' residual no buffer de entrada
+                getchar(); // Aguarda o usuario pressionar Enter para continuar
+                continue; // Salta o restante do laco e vai para o proximo turno
+            }            
+           
+           
+            printf("Pressione Enter para continuar...\n"); // Pede para pressionar Enter apos a acao do turno
+            getchar(); // Captura/descarta o '\n' residual no buffer de entrada
+            getchar(); // Aguarda o usuario pressionar Enter para continuar
+       
+       
+        }while(j != '4'); // j = jogada (repete os turnos enquanto a jogada for diferente de '4')
+        printf("Deseja continuar [S/N]? "); // S/N = Sim/Nao
+        scanf(" %c", &p); // p = proceguir (le a resposta do jogador para continuar ou encerrar)
+    }while(p != 'n'); // p = proceguir (repete a partida enquanto a resposta for diferente de 'n')
+   
+    return 0; // Encerra o programa indicando execucao bem-sucedida
+}
