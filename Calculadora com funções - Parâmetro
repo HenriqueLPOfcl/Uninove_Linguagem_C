@@ -1,0 +1,88 @@
+#include <stdio.h>
+
+// Procedimento para exibir o menu
+void menu() {
+	printf("\n===== CALCULADORA =====\n");
+	
+	printf("1 - Soma\n");
+	printf("2 - Subtração\n");
+	printf("3 - Multiplicação\n");
+	printf("4 - Divisão\n");
+	
+	printf("=======================\n");
+}
+
+// Procedimento para entrada dos números
+void entrada(double *a, double *b) {
+	printf("Digite o primeiro número: ");
+	scanf("%lf", a);
+
+	printf("Digite o segundo número: ");
+	scanf("%lf", b);
+}
+
+// Função de soma
+double somar(double a, double b) {
+	return a + b;
+}
+
+// Função de subtração
+double subtrair(double a, double b) {
+	return a - b;
+}
+
+// Função de multiplicação
+double multiplicar(double a, double b) {
+	return a * b;
+}
+
+// Função de divisão
+double dividir(double a, double b) {
+	return a / b;
+}
+
+int main() {
+	int opcao;
+	double num1, num2, resultado;
+
+	menu();
+
+	printf("Escolha uma opção: ");
+	scanf("%d", &opcao);
+
+	entrada(&num1, &num2);
+
+	switch(opcao) {
+		case 1:
+			resultado = somar(num1, num2);
+			printf("\nResultado da soma: %.2lf\n", resultado);
+			break;
+
+		case 2:
+			resultado = subtrair(num1, num2);
+			printf("\nResultado da subtração: %.2lf\n", resultado);
+			break;
+
+		case 3:
+			resultado = multiplicar(num1, num2);
+			printf("\nResultado da multiplicação: %.2lf\n", resultado);
+			break;
+	
+		case 4:
+			if(num2 != 0) {
+				resultado = dividir(num1, num2);
+				printf("\nResultado da divisão: %.2lf\n", resultado);
+			} 
+			
+			else {
+				printf("\nErro: divisão por zero!\n");
+			}
+			
+			break;
+		
+		default:
+			printf("\nOpção inválida!\n");
+	}
+
+	return 0;
+}
