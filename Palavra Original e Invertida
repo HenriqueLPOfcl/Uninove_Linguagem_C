@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char original[100], invertida[100];
+    int tamanho, tamanho2 = 0;
+    printf("Digite uma palavra ou frase: ");
+    fgets(original, sizeof(original), stdin);
+
+    // Remove o '\n' do final, se houver
+ 
+    original[strcspn(original, "\n")] = '\0';
+ 
+    tamanho = strlen(original);
+
+    // Copia os caracteres de trás pra frente
+
+    for (tamanho=tamanho-1; tamanho >= 0; tamanho--) {
+    invertida[tamanho2] = original[tamanho];
+    tamanho2++;
+    }
+ 
+    // Finaliza com caractere nulo
+ 
+    invertida[tamanho2] = '\0';
+    printf("Original: %s\n", original);
+ 
+    printf("Invertida: %s\n", invertida);
+    
+return 0;
+}
