@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+    int main () {
+    char candidatos[5][60];
+    int i;
+ 
+    for (i = 0; i < 5; i++) {
+        printf ("Digite o nome do(a) %d° candidato(a): ",i+1);
+        fgets (candidatos[i], sizeof(candidatos[i]),stdin);
+        candidatos[i][strcspn(candidatos[i], "\n")] = '\0';
+        }
+ 
+    printf ("Candidatos cujo(s) nome(s) começa(m) com a letra A:\n");
+ 
+    for (i = 0; i < 5; i++) {
+         if( candidatos[i][0] == 'A' || candidatos[i][0] == 'a' ) {
+            printf(" → %s \n",candidatos[i]);
+     }
+    }
+return 0;
+}
