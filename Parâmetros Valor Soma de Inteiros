@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+    int sr(int a, int b){    // sr = somar
+    
+    int r = a + b;          //  r = resultado
+    return r;                
+    }
+    
+int main(){
+    
+    int n1, n2, s;
+    
+    printf("Digite um número: ");
+    scanf("%d", &n1);
+    
+    printf("Digite segundo número: ");
+    scanf("%d", &n2);
+
+    s = sr(n1, n2);
+    
+    printf("Resuldado da soma é %d \n", s); // s = soma
+    
+    return 0;
+}
