@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+void Somar(double n1, double n2, double *pResultado){ //Parâmetros Formais
+    *pResultado = n1 + n2;
+}
+
+int main()
+{
+    double resultado;
+    double num1 = 7.5, num2 = 2.5; //variáveis locais
+    printf("Antes - Resultado: %lf \n", resultado);
+    Somar(num1, num2, &resultado); //Parâmetros Reais
+    printf("Depois - Resultado: %lf \n", resultado);
+    return 0;
+}
+
